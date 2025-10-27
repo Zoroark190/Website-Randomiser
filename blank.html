@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting you...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        const destinations = [
+          "https://docs.google.com/forms/d/e/1FAIpQLSdifWYUgbLWZIe-h13ktTNKjePX51csb3hj0zphVgFD6vnpEg/viewform?usp=dialog",
+          "https://docs.google.com/forms/d/e/1FAIpQLSfIsCqkVtHbCSz_S15cdtbau3_YrMDIupKtRxbl7YjAs5OUww/viewform?usp=dialog",
+          "https://docs.google.com/forms/d/e/1FAIpQLSfa-7VUaTHTdIBwTCF4MPA_cIsNFVoWJeUw36-fXK0alR7MJQ/viewform?usp=dialog",
+        ];
+
+        const choice = destinations[Math.floor(Math.random() * destinations.length)];
+
+        window.addEventListener("DOMContentLoaded", () => {
+          const fallbackLink = document.getElementById("fallback-link");
+          if (fallbackLink) {
+            fallbackLink.href = choice;
+          }
+          // Replace to avoid keeping this page in the history stack.
+          window.location.replace(choice);
+        });
+      })();
+    </script>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        background: #f8f9fa;
+        color: #1f2933;
+      }
+      main {
+        text-align: center;
+        max-width: 32rem;
+        padding: 2rem;
+      }
+      a {
+        color: #1a73e8;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p>Sending you to the correct form…</p>
+      <p>
+        If nothing happens,
+        <a id="fallback-link" href="#" rel="noopener noreferrer">click here</a>
+        .
+      </p>
+    </main>
+  </body>
+</html>
